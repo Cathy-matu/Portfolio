@@ -511,57 +511,7 @@ ul {
   }
 
 }
-.project-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
 
-.popup-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.popup-details-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.popup-description {
-  line-height: 1.6;
-  font-size: 16px;
-}
-
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 999;
-}
-
-#project-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  width: 90%;
-  max-width: 800px;
-  max-height: 90vh;
-  overflow-y: auto;
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-}
 /* === End Styling Portfolio Projects Section (Lesson 28) === */
 /* === Begin Styling Portfolio About Section (Lesson 29) === */
 .intro-text {
