@@ -1,27 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
 
 :root {
-  /* === Custom Color Palette === */
-  --primary: #8b5cf6;
+  /* === Techie Girl Professional Palette === */
+  --primary: #c084fc;
+  /* Lavender */
   --primary-foreground: #ffffff;
-  --secondary: #2d1b69;
-  --secondary-foreground: #e0e7ff;
-  --accent: #06b6d4;
-  --accent-foreground: #0f172a;
-  --background: #1e1b4b;
-  --background-foreground: #e2e8f0;
-  --muted: #3730a3;
-  --muted-foreground: #c7d2fe;
-  --destructive: #f87171;
+  --secondary: #2dd4bf;
+  /* Soft Teal */
+  --secondary-foreground: #e2e8f0;
+  /* Light Slate */
+
+  --accent: #f472b6;
+  /* Pink/Rose for subtle highlights */
+  --accent-foreground: #ffffff;
+
+  --background: #0f172a;
+  /* Deep Charcoal */
+  --background-alt: #1e293b;
+  /* Slightly lighter charcoal for cards/sections */
+  --background-foreground: #94a3b8;
+  /* Slate text */
+
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #cbd5e1;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #4c1d95;
-  --input: #2d1b69;
-  --ring: #8b5cf6;
+
+  --ring: #c084fc;
   /* === End Custom Palette === */
 }
+
 body {
   position: relative;
   padding: 0;
@@ -67,6 +84,7 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 /* === End Theme Styles (Lesson 24) === */
 /* === Begin Portfolio Header & Navigation Styles (Lesson 25) === */
 .position-fixed {
@@ -78,12 +96,17 @@ ul {
   left: 0;
   right: 0;
   z-index: 100;
-  height: 48px;
+  height: 60px;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--secondary);
+  background-color: rgba(15, 23, 42, 0.7);
+  /* Transparent Charcoal */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
 }
 
 @media screen and (min-width: 576px) {
@@ -129,6 +152,7 @@ ul {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -171,10 +195,12 @@ ul {
   .menu {
     display: none;
   }
+
   .nav-link {
     display: block;
   }
 }
+
 /* === End Portfolio Header & Navigation Styles (Lesson 25) === */
 /* === Begin Portfolio Mobile Menu (Lesson 26) === */
 
@@ -241,6 +267,7 @@ ul {
     margin: 0 120px;
   }
 }
+
 /* === End Portfolio Mobile Menu (Lesson 26) === */
 /* === Begin Styling Portfolio Hero (Lesson 27) === */
 .hero-wrapper {
@@ -339,9 +366,11 @@ ul {
     max-width: 700px;
     padding: 0 40px;
   }
+
   .hero-container .intro-text {
     font-size: 3.2rem;
   }
+
   .hero-desc {
     font-size: 1.3rem;
   }
@@ -355,31 +384,32 @@ ul {
 /* === End Styling Portfolio Hero (Lesson 27) === */
 /* === Begin Styling Portfolio Projects Section (Lesson 28) === */
 .btn {
-  padding: 12px;
-  background-color: var(--primary);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  padding: 10px 24px;
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  border-radius: 9999px;
+  /* Pill shape */
   font-weight: 500;
-  font-size: 17px;
+  font-size: 16px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   line-height: 24px;
   text-transform: capitalize;
-  color: var(--primary-foreground);
+  color: var(--primary);
   text-align: center;
   cursor: pointer;
-  transition-property: color, background-color, filter, transform, border-color;
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
+  letter-spacing: 0.5px;
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-  border-color: var(--ring);
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-  transform: translateY(-3px);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.3);
+  /* Subtle glow */
+  transform: translateY(-2px);
   outline: none;
 }
 
@@ -393,8 +423,7 @@ ul {
   background-color: var(--secondary);
   border: 1px solid var(--border);
   border-radius: 16px;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
 .project-snapshot {
@@ -462,8 +491,11 @@ ul {
   color: var(--primary-foreground);
 }
 
-.project-container .btn {
-  margin-top: 40px;
+.project-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
 }
 
 .technologies-used {
@@ -590,6 +622,7 @@ ul {
 .b-bottom {
   border-bottom: var(--border) 1px solid;
 }
+
 /* === End Styling Portfolio About Section (Lesson 29) === */
 /* === Begin Styling Portfolio Footer / Contact Section (Lesson 30) === */
 .contact-wrapper {
@@ -666,8 +699,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: start;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
 @media screen and (min-width: 768px) {
@@ -725,13 +757,22 @@ textarea {
 
 .contact-container button {
   margin-top: 3px;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   transition: all 300ms ease-in-out;
 }
 
 .contact-container button:hover {
   transform: translateY(-3px);
+}
+
+
+.btn-wrapper {
+  display: flex !important;
+  gap: 16px;
+  justify-content: center;
+  /* Center the buttons */
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .button-wrapper {
@@ -762,6 +803,7 @@ textarea {
     font-size: 12px;
   }
 }
+
 /* === End Styling Portfolio Footer / Contact Section (Lesson 30) === */
 .no-scroll {
   overflow-y: hidden;
@@ -776,54 +818,239 @@ textarea {
 .position-fixed {
   position: fixed;
 }
+
 .popup-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.85);
+  /* Darker, more opaque backdrop */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  overflow-y: scroll; /* Allow scrolling within the popup if content overflows */
-}
-.popup-container {
-  background-color: #fff;
+  z-index: 9999;
+  /* Ensure it's above everything */
+  overflow-y: hidden;
+  /* Handle overflow in container */
   padding: 20px;
-  border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
+}
+
+.popup-container {
+  background-color: #1e293b;
+  /* Solid color fallback */
+  background: rgba(30, 41, 59, 0.98);
+  /* Mostly opaque */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  /* Leave some breathing room */
   overflow-y: auto;
+  /* Scroll within the modal */
   position: relative;
+  color: var(--secondary-foreground);
+  display: flex;
+  flex-direction: column;
 }
+
+.popup-container h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.popup-container .project-details {
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+}
+
+.popup-container .project-details li {
+  color: var(--muted-foreground);
+}
+
+.popup-container .project-details svg circle {
+  fill: var(--primary);
+  /* Update dot color to match theme */
+}
+
+.popup-snapshot {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 2rem 0;
+}
+
+.popup-snapshot img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.popup-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--secondary-foreground);
+  margin-bottom: 2rem;
+}
+
 .popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: sticky;
+  top: 0;
+  align-self: flex-end;
+  /* Align to right */
+  margin-bottom: 10px;
+  /* Space from content */
+  z-index: 10;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 5px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  /* Prevent squishing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
 }
-.popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 5px;
+
+.popup-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
 }
+
+.popup-close svg path {
+  fill: var(--secondary-foreground);
+}
+
 .no-scroll {
-  overflow: hidden !important; /* Prevents body scrolling */
+  overflow: hidden !important;
+  /* Prevents body scrolling */
   height: 100vh;
 }
+
 .position-fixed {
-  position: fixed !important; /* Use !important to ensure override */
+  position: fixed !important;
+  /* Use !important to ensure override */
   /* width: 100%; */
   top: 0;
   left: 0;
   z-index: 999;
+}
+
+/* === Glassmorphism Utilities === */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(192, 132, 252, 0.15);
+  /* Lavender glow */
+  border-color: rgba(192, 132, 252, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === New Content Styles === */
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* Behind content */
+}
+
+/* Update hero z-index to stay above canvas */
+.hero-container {
+  z-index: 10;
+}
+
+/* Tech Cloud Styles */
+.tech-cloud-section {
+  margin-bottom: 24px;
+}
+
+.tech-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.tech-cloud span {
+  padding: 8px 16px;
+  background: rgba(192, 132, 252, 0.1);
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  border-radius: 20px;
+  color: var(--primary-foreground);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tech-cloud span:hover {
+  background: rgba(192, 132, 252, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(192, 132, 252, 0.15);
+}
+
+.personal-growth h3 {
+  color: var(--secondary);
+}
+
+
+/* === Scroll Animation Styles === */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media(prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
 }

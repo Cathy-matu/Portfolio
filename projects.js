@@ -2,79 +2,77 @@ const projectsSection = document.getElementById("projects-section");
 
 const projects = [
   {
-    name: "Code Kenya",
+    name: "RentWallet",
     jobDescription: {
-      company: "Code Kenya",
-      role: "Web Dev",
+      company: "Personal Project",
+      role: "Fintech / Fullstack",
       year: "2025",
     },
     description: {
       featured:
-        "Interning at Code Kenya, as a web developer. I'm learning and building projects with HTML, CSS, JavaScript, and React.",
+        "A comprehensive fintech application for streamlining rent payments and financial management for tenants and landlords.",
       detailed:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with thereleaLorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "RentWallet helps users manage their rent payments efficiently. Features include automated payment scheduling, transaction history, and financial insights. Built with modern web technologies to ensure security and ease of use.",
     },
     languages: {
-      featured: ["html", "Ruby on rails", "css", "javascript"],
-      detailed: ["html", "css", "javascript", "github", "ruby", "Bootstrap"],
+      featured: ["React", "Node.js", "PostgreSQL"],
+      detailed: ["React", "Node.js", "PostgreSQL", "Express", "Tailwind CSS"],
     },
     thumbnail: {
-      featured: "codekenya.png",
-      detailed: "codekenya.png",
+      featured: "Rentwallet.png",
+      detailed: ["Rentwallet.png", "Rw.png"],
     },
-    liveUrl: "https://www.codekenya.org/about-us",
-    sourceCode: "https://github.com/Cathy-matu/CodeKenya-Portfolio",
+    liveUrl: "https://rent-wallet-mvp.vercel.app/",
+    sourceCode: "#",
   },
   {
-    name: "Usa Prospects Agent",
+    name: "Kibera Spatial Project",
     jobDescription: {
-      company: "USAPP",
-      role: "Full Stack Dev",
-      year: "2025",
+      company: "Research",
+      role: "Data Science / GIS",
+      year: "2024",
     },
     description: {
       featured:
-        "Integarating AI Workflows to automate tasks like college essay review, answer questions on the entire US college application process, and more.",
+        "A spatial analysis platform leveraging GIS data to map and analyze infrastructure in Kibera.",
       detailed:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with thereleaLorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "This project uses Python and GIS tools to visual spatial data, helping to identify key infrastructure needs and patterns in the Kibera region. It involves complex data processing and interactive mapping visuals.",
     },
     languages: {
-      featured: ["html", "Ruby on rails", "css", "javascript"],
-      detailed: ["html", "css", "javascript", "github", "ruby", "Bootstrap"],
+      featured: ["Python", "GIS", "Data Science"],
+      detailed: ["Python", "Pandas", "GeoPandas", "Leaflet", "Jupyter"],
     },
     thumbnail: {
-      featured: "usapp.png",
-      detailed: "usapp.png",
+      featured: "kibera.png",
+      detailed: ["kibera.png", "Simulation.png", "mapkibera.png"],
     },
-    liveUrl: "https://www.usaprospectsagent.com/",
-    sourceCode: "https://github.com/Cathy-matu/CodeKenya-Portfolio",
+    liveUrl: "https://k-sisp-frontend.vercel.app/",
+    sourceCode: "#",
   },
 ];
 
 for (let i = 0; i < projects.length; i += 1) {
   const projectContainer = document.createElement("div");
-  projectContainer.innerHTML = ` <div class="project-snapshot ${
-    i % 2 !== 0 ? "odd" : ""
-  }">
+  projectContainer.innerHTML = ` <div class="project-snapshot ${i % 2 !== 0 ? "odd" : ""
+    }">
     <a href="">
-      <img src="assets/img/projects/${projects[i].thumbnail.featured}" alt=${
-    projects[i].name
-  } />
+      <img src="assets/img/projects/${projects[i].thumbnail.featured}" alt=${projects[i].name
+    } />
     </a>
   </div>
   <div class="project-content">
-    <h2>${projects[i].name}</h2>
+    <h2 class="text-gradient">${projects[i].name}</h2>
     <ul class="project-details">
       <li class="client-name">${projects[i].jobDescription.company}</li>
       <li class="role">
         <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="4" cy="4" r="4" fill="#C1C7D0" />
+          <circle cx="4" cy="4" r="4" fill="#C084FC" />
         </svg>
         ${projects[i].jobDescription.role}
       </li>
       <li class="yearlb">
         <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="4" cy="4" r="4" fill="#C1C7D0" />
+          <circle cx="4" cy="4" r="4" fill="#C084FC" />
         </svg>
         ${projects[i].jobDescription.year}
       </li>
@@ -82,14 +80,16 @@ for (let i = 0; i < projects.length; i += 1) {
     <p>${projects[i].description.featured}</p>
     <ul class="technologies-used">
       ${projects[i].languages.featured
-        .map((language) => `<li>${language}</li>`)
-        .join("")}
+      .map((language) => `<li>${language}</li>`)
+      .join("")}
     </ul>
-    <button type="button" class="btn">
-      see project
-    </button>
+    <div class="project-btn-container">
+      <button type="button" class="btn">
+        see project
+      </button>
+    </div>
   </div> `;
-  projectContainer.classList.add("project-container", "container");
+  projectContainer.classList.add("project-container", "container", "glass-card", "hidden");
   projectsSection.appendChild(projectContainer);
 }
 const projectButton = document.querySelectorAll(".project-content .btn");
@@ -123,19 +123,15 @@ function createPopup(position) {
       </svg>
     </div>
     <div class="popup-snapshot">
-      <a href="">
-        <img src=assets/img/projects/${
-          projects[position].thumbnail.detailed
-        } alt=${projects[position].name} />
-      </a>
+      ${projects[position].thumbnail.detailed.map((img) => `<img src="assets/img/projects/${img}" alt="${projects[position].name}" />`).join("")}
     </div>
     <div class="popup-content">
       <p>${projects[position].description.detailed}</p>
       <div>
         <ul class="technologies-used">
           ${projects[position].languages.detailed
-            .map((language) => `<li>${language}</li>`)
-            .join("")}
+      .map((language) => `<li>${language}</li>`)
+      .join("")}
         </ul>
         <div class="btn-wrapper">
           <a href = "${projects[position].liveUrl}" target="_blank">
@@ -164,21 +160,31 @@ function createPopup(position) {
   </div>
   </div> `;
   popup.id = "project-popup";
-  projectsSection.appendChild(popup);
-  headerWrapper.classList.toggle("display-none");
-  headerWrapper.classList.toggle("position-fixed");
-  document.body.classList.toggle("no-scroll");
+  document.body.appendChild(popup);
+  // headerWrapper.classList.toggle("display-none"); // Keep header visible behind backdrop if desired, or hide it.
+  // headerWrapper.classList.toggle("position-fixed"); // Usually better to just overlay
+  document.body.classList.add("no-scroll");
 }
 
 projectButton.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     createPopup(index);
     const popupHTML = document.getElementById("project-popup");
-    document.querySelector(".popup-close").addEventListener("click", () => {
-      projectsSection.removeChild(popupHTML);
-      headerWrapper.classList.toggle("display-none");
-      headerWrapper.classList.toggle("position-fixed");
-      document.body.classList.toggle("no-scroll");
+    const closeBtn = document.querySelector(".popup-close");
+
+    // Function to close popup
+    const closePopup = () => {
+      document.body.removeChild(popupHTML);
+      document.body.classList.remove("no-scroll");
+    };
+
+    closeBtn.addEventListener("click", closePopup);
+
+    // Close on click outside container
+    popupHTML.addEventListener("click", (e) => {
+      if (e.target.classList.contains("popup-wrapper")) {
+        closePopup();
+      }
     });
   });
 });
